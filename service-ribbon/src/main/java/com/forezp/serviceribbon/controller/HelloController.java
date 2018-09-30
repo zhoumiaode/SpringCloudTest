@@ -29,4 +29,9 @@ public class HelloController {
     public String hi(@RequestParam String name) {
         return helloService.hiService( name );
     }
+
+    @GetMapping(value = "/test")
+    public String test(){
+        return helloService.test();
+    }
 }

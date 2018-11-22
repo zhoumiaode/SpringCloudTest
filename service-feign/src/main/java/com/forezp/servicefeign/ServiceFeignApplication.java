@@ -21,4 +21,10 @@ public class ServiceFeignApplication {
     public String test(){
 	    return "test";
     }
+
 }
+
+
+
+
+

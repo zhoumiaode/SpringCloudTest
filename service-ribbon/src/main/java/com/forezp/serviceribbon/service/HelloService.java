@@ -3,10 +3,16 @@ package com.forezp.serviceribbon.service;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.ribbon.proxy.annotation.Hystrix;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ProjectName: scfchapter1
@@ -33,6 +39,20 @@ public class HelloService {
 
     public String test(){
         return restTemplate.getForObject("http://service-feign/test",String.class);
+    }
+
+    public List<String> getList(){
+        List<String> list=restTemplate.getForObject("http://service-hi/getList",List.class);
+        ResponseEntity<List> responseEntity=restTemplate.getForEntity("http://service-hi/getList",List.class);
+        HttpStatus httpStatus=responseEntity.getStatusCode();
+        HttpHeaders httpHeaders=responseEntity.getHeaders();
+        int code=httpStatus.value();
+        List<HttpMessageConverter<?>> list1=restTemplate.getMessageConverters();
+        for(HttpMessageConverter<?> item:list1){
+            System.out.println(item.getClass());
+        }
+        List<String> list2=responseEntity.getBody();
+        return  list;
     }
 
     public String hiError(String name){

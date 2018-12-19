@@ -5,6 +5,7 @@ import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
  * @UpdateRemark: The modified content
  * @Version: 1.0
  */
+@Component
 public class MyFilter extends ZuulFilter{
     private static Logger log = LoggerFactory.getLogger(MyFilter.class);
     

@@ -2,7 +2,8 @@ package com.forezp.servicefeign.controller;
 
 import com.forezp.servicefeign.inteface.SchedualServiceHi;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +29,7 @@ public class HiController {
 
     @Value("${server.port}")
     private int port;
-    @GetMapping(value = "/hi")
+    @RequestMapping(value = "/hi",method = RequestMethod.GET)
     public String sayHi(@RequestParam String name) {
         System.out.println("端口号为:"+port);
         return schedualServiceHi.sayHiFromClientOne( name );

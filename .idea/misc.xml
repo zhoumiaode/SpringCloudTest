@@ -9,8 +9,13 @@
         <option value="$PROJECT_DIR$/service-ribbon/pom.xml" />
         <option value="$PROJECT_DIR$/service-feign/pom.xml" />
         <option value="$PROJECT_DIR$/service-zuul/pom.xml" />
-        <option value="$PROJECT_DIR$/task/pom.xml" />
+        <option value="$PROJECT_DIR$/tasks/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/advise/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
